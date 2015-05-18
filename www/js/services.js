@@ -5,9 +5,26 @@ services.js// Ionic Starter App
 // the 2nd parameter is an array of 'requires'
 angular.module('visuo.services', [])
 
-.factory('',function(){
-Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
-  sysTime = new Date();
-})
+.factory('WeatherLists',function(Request){
+     var weatherLists = [];
+     var sysTime;
+
+     Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
+        sysTime = new Date();
+        for ( i in data.weather){
+           weatherLists.push({
+                temp:data.temperature;
+                hum:data.humidity;
+                dewP:data.dewPoint;
+                windS:data.windSpeed;
+           });
+        }
+     })
+
+     return {
+        getWeatherLists: function(){
+            return weatherLists;
+        }
+     }
 
 });

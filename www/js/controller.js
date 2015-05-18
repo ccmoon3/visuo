@@ -5,5 +5,22 @@ controller.js// Ionic Starter App
 // the 2nd parameter is an array of 'requires'
 angular.module('visuo.controllers', [])
 
-.controller("AppCtrl",function ($scope, $rootScope, $ionicModal, Request){
+.controller("AppCtrl",function ($scope){
+     $scope.weathers = [];
+
+     var sysTime;
+
+     Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
+        sysTime = new Date();
+        for ( i in data.weather){
+           $scope.weathers.push({
+                photo:data.photoSrc;
+                temp:data.temperature;
+                hum:data.humidity;
+                dewP:data.dewPoint;
+                windS:data.windSpeed;
+           });
+        }
+     })
+
 });
