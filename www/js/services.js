@@ -6,4 +6,8 @@ services.js// Ionic Starter App
 angular.module('visuo.services', [])
 
 .factory('',function(){
+Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
+  sysTime = new Date();
+})
+
 });
