@@ -26,19 +26,37 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
         url: "/app",
         abstract: true,
         templateUrl: "templates/menu.html",
-      //  controller: 'WeatherCtrl'
+        controller: 'WeatherCtrl'
       })
 
       .state('app.main', {
         url: "/main",
-        templateUrl: "templates/main.html",
-        controller: 'WeatherCtrl'
+        views:{
+           'menuContent':{
+               templateUrl: "templates/main.html",
+               controller: 'WeatherCtrl'
+           }
+        }
       })
 
-      .state('app.select', {
+  /*    .state('app.select', {
         url: "/select",
-        templateUrl: "templates/select.html",
-        controller: 'SelectCtrl'
+        views:{
+           'menuContent':{
+               templateUrl: "templates/select.html",
+               controller: 'SelectCtrl'
+           }
+        }
+      })*/
+
+      .state('app.device', {
+         url: "/main/:deviceId",
+         views:{
+            'menuContent':{
+                templateUrl: "templates/main.html",
+                controller: 'WeatherCtrl'
+            }
+        }
       });
 
     // if none of the above states are matched, use this as the fallback

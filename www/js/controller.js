@@ -1,16 +1,20 @@
-
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'visuo' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('visuo.controllers', [])
 
 .controller("WeatherCtrl",function ($scope,$http){
      $scope.weathers = [];
+     $scope.devices = [
+      {id:1,name:"Device 1"},
+      {id:2,name:"Device 2"},
+      {id:3,name:"Device 3"},
+     ];
+     $scope.deviceID = 1;
 
      var sysTime;
 
  //    Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
+ //click device_1:get (js/1/test.json)
+ //click device_2:get (js/2/test.json)
+ //click device_3:get (js/3/test.json)   ** get(js/$scope.deviceID/test.json)
       $http.get("js/test.json").success(function(data){
 
         sysTime = new Date(data.sysTime);
@@ -25,13 +29,4 @@ angular.module('visuo.controllers', [])
            });
         }
        })
-})
-
-.controller("SelectCtrl",function ($scope){
-     $scope.devices = [
-      {id:1,name:"Device 1"},
-      {id:2,name:"Device 2"},
-      {id:3,name:"Device 3"},
-     ];
-
 });
