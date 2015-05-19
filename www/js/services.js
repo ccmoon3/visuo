@@ -1,4 +1,4 @@
-services.js// Ionic Starter App
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'visuo' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -13,10 +13,10 @@ angular.module('visuo.services', [])
         sysTime = new Date();
         for ( i in data.weather){
            weatherLists.push({
-                temp:data.temperature;
-                hum:data.humidity;
-                dewP:data.dewPoint;
-                windS:data.windSpeed;
+                temp:data.temperature,
+                hum:data.humidity,
+                dewP:data.dewPoint,
+                windS:data.windSpeed,
            });
         }
      })

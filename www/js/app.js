@@ -1,9 +1,4 @@
-app.js// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'visuo' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('visuo', ['ionic','visuo.controllers','visuo.services'])
+angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,3 +12,36 @@ angular.module('visuo', ['ionic','visuo.controllers','visuo.services'])
     }
   });
 })
+
+ .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+
+    $httpProvider.defaults.withCredentials = true;
+
+    $httpProvider.defaults.headers.put['Content-Type'] = 'X-Requested-With';
+    $httpProvider.defaults.headers.post['Content-Type'] = 'X-Requested-With';
+
+    $stateProvider
+
+      .state('app', {
+        url: "/app",
+        abstract: true,
+        templateUrl: "templates/menu.html",
+      //  controller: 'WeatherCtrl'
+      })
+
+      .state('app.main', {
+        url: "/main",
+        templateUrl: "templates/main.html",
+        controller: 'WeatherCtrl'
+      })
+
+      .state('app.select', {
+        url: "/select",
+        templateUrl: "templates/select.html",
+        controller: 'SelectCtrl'
+      });
+
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/app/main');
+
+  });

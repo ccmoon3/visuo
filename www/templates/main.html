@@ -1,0 +1,13 @@
+<ion-view >
+<ion-pane class="background">
+    <ion-content class="backgroundImage" ng-repeat="weather in weathers" ng-style="{'background-image':'url({{weather.photo}})'}">
+        <div class="dataInfo">
+            <h2>{{weather.sysTime}}</h2>
+            <p>Temperature: {{weather.temp}}</p>
+            <p>Humidity: {{weather.hum}}</p>
+            <p>Dew point: {{weather.dewP}}</p>
+            <p>Wind speed: {{weather.windS}}</p>
+        </div>
+    </ion-content>
+</ion-pane>
+</ion-view>

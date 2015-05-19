@@ -1,0 +1,39 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+    <ion-side-menu-content ng-controller="WeatherCtrl">
+        <ion-nav-bar class="trans_header">
+            <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent">
+            <ion-view hide-nav-bar="true">
+                <ion-pane>
+                    <ion-content class="background_image" ng-repeat="weather in weathers" ng-style="{'background-image':'url({{weather.photo}})'}">
+                        <div class="dataInfo">
+                            <h2>{{weather.sysTime}}</h2>
+                            <p>Temperature: {{weather.temp}}</p>
+                            <p>Humidity: {{weather.hum}}</p>
+                            <p>Dew point: {{weather.dewP}}</p>
+                            <p>Wind speed: {{weather.windS}}</p>
+                        </div>
+                    </ion-content>
+                </ion-pane>
+            </ion-view>
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+<!--sidemenu-right-->
+    <ion-side-menu side="right" ng-controller="SelectCtrl">
+        <ion-content >
+            <ion-list >
+                <ion-item menu-close ng-repeat="device in devices" ng-href="#/app/{{device.id}}">
+                    {{device.name}}
+                </ion-item>
+            </ion-list >
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>

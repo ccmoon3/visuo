@@ -1,1 +1,34 @@
 /* Empty. Add your own CSS if you like */
+body{
+     background-color: black;
+}
+
+.pane, .menu, .view, .list, .item, .item-content       {
+    background-color: transparent!important;
+    border-color: rgb(96,96,96);
+    color: white;
+}
+
+
+.trans_header{
+  background: none;
+  border-bottom: none;
+}
+
+
+.background_image{
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    -ms-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment:fixed;
+    overflow:auto;
+}
+
+.dataInfo{
+       text-align: center;
+       color: white;
+}
