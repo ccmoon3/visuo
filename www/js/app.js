@@ -45,7 +45,7 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
-                controller: 'WeatherCtrl'
+                controller: 'WeatherSelectCtrl'
             }
         }
       });
