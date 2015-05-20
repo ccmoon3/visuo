@@ -1,30 +1,84 @@
-
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'visuo' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('visuo.services', [])
-
-.factory('WeatherLists',function(Request){
+/*
+.factory('WeatherLists',function($http){
      var weatherLists = [];
-     var sysTime;
+     var deviceID = [1,2,3];
 
-     Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
-        sysTime = new Date();
-        for ( i in data.weather){
-           weatherLists.push({
-                temp:data.temperature,
-                hum:data.humidity,
-                dewP:data.dewPoint,
-                windS:data.windSpeed,
-           });
-        }
-     })
-
+     for ( i in deviceID){
+        $http.get("js/"+deviceID[i]+"/test.json").success(function(data){
+                  weatherLists.push({
+                        sysTime:data[0].sysTime,
+                        photo:data[0].photoSrc,
+                        temp:data[0].temperature,
+                        hum:data[0].humidity,
+                        dewP:data[0].dewPoint,
+                        windS:data[0].windSpeed,
+                   });
+               })
+     }
      return {
-        getWeatherLists: function(){
+        getWeatherList: function(){
             return weatherLists;
         }
      }
+})*/
 
+.factory('WeatherList_1',function($http){
+     var weatherLists = [];
+        $http.get("js/1/test.json").success(function(data){
+                  weatherLists.push({
+                        sysTime:data[0].sysTime,
+                        photo:data[0].photoSrc,
+                        temp:data[0].temperature,
+                        hum:data[0].humidity,
+                        dewP:data[0].dewPoint,
+                        windS:data[0].windSpeed,
+                   });
+               })
+
+     return {
+        getWeatherList: function(){
+            return weatherLists;
+        }
+     }
+})
+
+.factory('WeatherList_2',function($http){
+     var weatherLists = [];
+        $http.get("js/2/test.json").success(function(data){
+                  weatherLists.push({
+                        sysTime:data[0].sysTime,
+                        photo:data[0].photoSrc,
+                        temp:data[0].temperature,
+                        hum:data[0].humidity,
+                        dewP:data[0].dewPoint,
+                        windS:data[0].windSpeed,
+                   });
+               })
+
+     return {
+        getWeatherList: function(){
+            return weatherLists;
+        }
+     }
+})
+
+.factory('WeatherList_3',function($http){
+     var weatherLists = [];
+        $http.get("js/3/test.json").success(function(data){
+                  weatherLists.push({
+                        sysTime:data[0].sysTime,
+                        photo:data[0].photoSrc,
+                        temp:data[0].temperature,
+                        hum:data[0].humidity,
+                        dewP:data[0].dewPoint,
+                        windS:data[0].windSpeed,
+                   });
+               })
+
+     return {
+        getWeatherList: function(){
+            return weatherLists;
+        }
+     }
 });

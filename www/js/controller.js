@@ -1,33 +1,32 @@
 angular.module('visuo.controllers', [])
 
-.controller("WeatherCtrl",function ($scope,$http){
+.controller("WeatherCtrl",function ($scope, $http, WeatherList_1, WeatherList_2, WeatherList_3){
      $scope.weathers = [];
      $scope.devices = [
       {id:1,name:"Device 1"},
       {id:2,name:"Device 2"},
       {id:3,name:"Device 3"},
      ];
-     $scope.deviceID = 1;
 
-     var sysTime;
-
- //    Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
- //click device_1:get (js/1/test.json)
- //click device_2:get (js/2/test.json)
- //click device_3:get (js/3/test.json)   ** get(js/$scope.deviceID/test.json)
-      $http.get("js/"+$scope.deviceID+"/test.json").success(function(data){
-      console.log("js/"+$scope.deviceID+"/test.json");
-        sysTime = new Date(data.sysTime);
-        for ( i in data){
-           $scope.weathers.push({
-                sysTime:data[i].sysTime,
-                photo:data[i].photoSrc,
-                temp:data[i].temperature,
-                hum:data[i].humidity,
-                dewP:data[i].dewPoint,
-                windS:data[i].windSpeed,
-           });
-           console.log($scope.weathers);
-        }
-       })
+     $scope.setDevice = function(deviceId){
+          deviceId = deviceId;
+          console.log(deviceID);
+          if(deviceId == '3'){
+                    $scope.weathers = WeatherList_3.getWeatherList();
+                    console.log($scope.weathers);
+                    console.log("enter:3");
+                 }
+                 else if(deviceId == '2'){
+                    $scope.weathers = WeatherList_2.getWeatherList();
+                    console.log($scope.weathers);
+                    console.log("enter:2");
+                 }
+                 else if(deviceId == '1'){
+                    $scope.weathers = WeatherList_1.getWeatherList();
+                    console.log($scope.weathers);
+                    console.log("enter:1");
+                 }
+       }
+       $scope.weathers = WeatherList_1.getWeatherList();
+       console.log("enter:default");
 });

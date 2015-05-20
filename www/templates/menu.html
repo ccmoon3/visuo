@@ -18,7 +18,7 @@
     <ion-side-menu side="right">
         <ion-content >
             <ion-list >
-                <ion-item menu-close ng-repeat="device in devices" ng-click="deviceID = device.id" ng-href="#/app/main/{{device.id}}">
+                <ion-item menu-close ng-repeat="device in devices" ng-click="setDevice(device.id)" href="#/app/main/{{device.id}}">
                     {{device.name}}
                 </ion-item>
             </ion-list >
