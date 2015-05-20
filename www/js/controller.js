@@ -15,8 +15,8 @@ angular.module('visuo.controllers', [])
  //click device_1:get (js/1/test.json)
  //click device_2:get (js/2/test.json)
  //click device_3:get (js/3/test.json)   ** get(js/$scope.deviceID/test.json)
-      $http.get("js/test.json").success(function(data){
-
+      $http.get("js/"+$scope.deviceID+"/test.json").success(function(data){
+      console.log("js/"+$scope.deviceID+"/test.json");
         sysTime = new Date(data.sysTime);
         for ( i in data){
            $scope.weathers.push({
@@ -27,6 +27,7 @@ angular.module('visuo.controllers', [])
                 dewP:data[i].dewPoint,
                 windS:data[i].windSpeed,
            });
+           console.log($scope.weathers);
         }
        })
 });

@@ -39,15 +39,6 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
         }
       })
 
-  /*    .state('app.select', {
-        url: "/select",
-        views:{
-           'menuContent':{
-               templateUrl: "templates/select.html",
-               controller: 'SelectCtrl'
-           }
-        }
-      })*/
 
       .state('app.device', {
          url: "/main/:deviceId",
