@@ -1,4 +1,4 @@
-angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
+angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -34,18 +34,17 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
         views:{
            'menuContent':{
                templateUrl: "templates/main.html",
-               controller: 'WeatherCtrl'
            }
         }
       })
 
 
       .state('app.device', {
-         url: "/main/:deviceId",
+         url: "/Device/:deviceId",
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
-                controller: 'WeatherSelectCtrl'
+                controller: 'DeviceSelectCtrl'
             }
         }
       });

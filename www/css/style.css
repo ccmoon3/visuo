@@ -1,6 +1,7 @@
 /* Empty. Add your own CSS if you like */
-body{
+html, body{
      background-color: black;
+     height:100%
 }
 
 .pane, .menu, .view, .list, .item, .item-content       {
@@ -23,12 +24,28 @@ body{
     -ms-background-size: contain;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: 50% 40%;
     background-attachment:fixed;
     overflow:auto;
 }
 
-.dataInfo{
+.weather{
        text-align: center;
+       padding:100% 0% 15% 0%;
+       color: white;
+}
+
+.location{
+       text-align: center;
+       padding:0px 0px 0px 0px;
+       margin:0px;
+       color: white;
+}
+
+.time{
+       text-align: center;
+       padding:15% 0 0 0;
+       font-size:25px;
+       margin:0px;
        color: white;
 }

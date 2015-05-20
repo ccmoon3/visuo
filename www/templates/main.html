@@ -2,13 +2,18 @@
 <ion-view hide-nav-bar="true">
     <ion-pane>
         <ion-content class="background_image" ng-style="{'background-image':'url('+ weather.photo +')'}">
-            <div class="dataInfo">
-                <h2>{{weather.sysTime}}</h2>
+            <div class="time">
+                <p>{{weather.sysTime}}<p>
+            </div>
+            <div class="location">
+                <p>Dew point: {{weather.dewP}}</p>
+            </div>
+            <div class="weather">
                 <p>Temperature: {{weather.temp}}</p>
                 <p>Humidity: {{weather.hum}}</p>
-                <p>Dew point: {{weather.dewP}}</p>
                 <p>Wind speed: {{weather.windS}}</p>
             </div>
+
         </ion-content>
     </ion-pane>
 </ion-view>
