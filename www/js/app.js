@@ -41,11 +41,11 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
 
       .state('app.device', {
-         url: "/Device/:deviceId",
+         url: "/Imager/:imagerId",
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
-                controller:"WeatherCtrl",
+                controller:"DeviceCtrl",
             }
         }
       });
