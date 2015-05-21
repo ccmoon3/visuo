@@ -10,6 +10,10 @@ body{
     color: white;
 }
 
+.pane {
+   background-color: black;
+}
+
 
 .trans_header{
   background: none;

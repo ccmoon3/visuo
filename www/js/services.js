@@ -1,30 +1,48 @@
-
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'visuo' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('visuo.services', [])
 
-.factory('WeatherLists',function(Request){
+.factory('WeatherLists',function($http){
      var weatherLists = [];
-     var sysTime;
+     var deviceLists = [
+                          {id:1,name:"Device 1"},
+                          {id:2,name:"Device 2"},
+                          {id:3,name:"Device 3"},
+                       ];
 
-     Request.withoutAuth({url:'/data/weather_measurement'},function(data,status,headers,config){
-        sysTime = new Date();
-        for ( i in data.weather){
-           weatherLists.push({
-                temp:data.temperature,
-                hum:data.humidity,
-                dewP:data.dewPoint,
-                windS:data.windSpeed,
-           });
-        }
+      function getData(){
+
+                   for ( i in deviceLists){
+                        $http.get("js/"+deviceLists[i].id+"/test.json").success(function(data){
+                             weatherLists.push(data[0]);
+                        })
+                    }
+
+      }
+  //  console.log(weatherLists[1]);
+
+   return {
+
+      get: function(deviceId){
+            return weatherLists[deviceId];
+      },
+
+      all: function(){
+           return weatherLists;
+      }
+   }
+})
+
+.factory('ImagerLists',function($http){
+     var ImagerLists = [];
+
+   $http.get("https://www.visuo.adsc.com.sg/api/app/").success(function(data, status, headers, config){
+          console.log(data);
      })
 
-     return {
-        getWeatherLists: function(){
-            return weatherLists;
+   return {
+        ImagerLists: function(){
+            return ImagerLists;
         }
-     }
+    }
+
 
 });
