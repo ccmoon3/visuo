@@ -27,7 +27,7 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
         url: "/app",
         abstract: true,
         templateUrl: "templates/menu.html",
-        controller: 'WeatherCtrl'
+
       })
 
       .state('app.main', {
@@ -45,7 +45,7 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
-                controller: 'DeviceSelectCtrl'
+                controller:"WeatherCtrl",
             }
         }
       });

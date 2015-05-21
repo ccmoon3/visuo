@@ -3,52 +3,21 @@
     <ion-pane>
         <ion-content >
 
-      <ion-slide-box>
-         <ion-slide class="background_image" ng-style="{'background-image':'url('+ imager1.photo +')'}">
+      <ion-slide-box active-slide="myActiveSlide">
+         <ion-slide class="background_image" ng-repeat="device in weather.devices" ng-style="{'background-image':'url('+ device.photo +')'}">
             <div class="time">
-                <p>Page 1</p>
-                <p>{{imager1.date}}<p>
+                <p>Page-Slide</p>
+                <p>{{device.date}}<p>
             </div>
             <div class="location">
-                <p>Dew point: {{imager1.dewP}}</p>
+                <p>{{device.name}}</p>
             </div>
             <div class="weather">
-                <p>Temperature: {{imager1.temperature}}</p>
-                <p>Humidity: {{imager1.humidity}}</p>
-                <p>Wind speed: {{imager1.wind_speed}}</p>
+                <p>Temperature: {{device.temperature}}</p>
+                <p>Humidity: {{device.humidity}}</p>
+                <p>Wind speed: {{device.wind_speed}}</p>
             </div>
          </ion-slide>
-
-
-          <ion-slide class="background_image" ng-style="{'background-image':'url('+ imager2.photo +')'}">
-              <div class="time">
-                  <p>Page 2</p>
-                  <p>{{imager2.date}}<p>
-              </div>
-              <div class="location">
-                  <p>Dew point: {{imager2.dewP}}</p>
-              </div>
-              <div class="weather">
-                  <p>Temperature: {{imager2.temperature}}</p>
-                  <p>Humidity: {{imager2.humidity}}</p>
-                  <p>Wind speed: {{imager2.wind_speed}}</p>
-              </div>
-          </ion-slide>
-
-          <ion-slide class="background_image" ng-style="{'background-image':'url('+ imager3.photo +')'}">
-              <div class="time">
-                  <p>Page 3</p>
-                  <p>{{imager3.date}}<p>
-              </div>
-              <div class="location">
-                  <p>Dew point: {{imager3.dewP}}</p>
-              </div>
-              <div class="weather">
-                  <p>Temperature: {{imager3.temperature}}</p>
-                  <p>Humidity: {{imager3.humidity}}</p>
-                  <p>Wind speed: {{imager3.wind_speed}}</p>
-              </div>
-          </ion-slide>
 
       </ion-slide-box>
 
