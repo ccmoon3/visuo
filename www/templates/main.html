@@ -6,11 +6,10 @@
       <ion-slide-box active-slide="myActiveSlide">
          <ion-slide class="background_image" ng-repeat="device in weather.devices" ng-style="{'background-image':'url('+ device.photo +')'}">
             <div class="time">
-                <p>Page-Slide</p>
                 <p>{{device.date}}<p>
             </div>
             <div class="location">
-                <p>{{device.location}}</p>
+                <p>{{device.id}}  {{device.location}}</p>
             </div>
             <div class="weather">
                 <p>Temperature: {{device.temperature}}</p>
