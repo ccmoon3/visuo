@@ -31,18 +31,21 @@ angular.module('visuo.services', [])
    }
 })
 
-.factory('ImagerLists',function($http){
-     var ImagerLists = [];
+.factory('DeviceFct',function($http){
 
-   $http.get("https://www.visuo.adsc.com.sg/api/app/").success(function(data, status, headers, config){
-          console.log(data);
-     })
-
+   var devices;
    return {
-        ImagerLists: function(){
-            return ImagerLists;
-        }
-    }
-
+      getID : function(callback){
+          if(devices){
+            callback();
+          }
+          else{
+              $http.get("https://www.visuo.adsc.com.sg/api/app/?format=json").success(function(data, status, headers, config){
+                 devices = data;
+                 callback();
+             })
+          }
+      }
+   }
 
 });
