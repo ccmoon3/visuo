@@ -1,17 +1,12 @@
 /* Empty. Add your own CSS if you like */
 body{
      background-color: black;
-     height:100%
 }
 
-.menu, .view, .list, .item, .item-content       {
+.pane, .menu, .view, .list, .item, .item-content       {
     background-color: transparent!important;
     border-color: rgb(96,96,96);
     color: white;
-}
-
-.pane {
-   background-color: black;
 }
 
 
@@ -28,29 +23,12 @@ body{
     -ms-background-size: contain;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50% 40%;
+    background-position: center top;
     background-attachment:fixed;
-    background-color: black;
     overflow:auto;
 }
 
-.weather{
+.dataInfo{
        text-align: center;
-       padding:100% 0% 15% 0%;
-       color: white;
-}
-
-.location{
-       text-align: center;
-       padding:0px 0px 0px 0px;
-       margin:0px;
-       color: white;
-}
-
-.time{
-       text-align: center;
-       padding:15% 0 0 0;
-       font-size:25px;
-       margin:0px;
        color: white;
 }
