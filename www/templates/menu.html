@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
 
-    <ion-side-menu-content ng-controller="WeatherCtrl">
+    <ion-side-menu-content>
         <ion-nav-view>
         <ion-nav-bar class="trans_header">
             <ion-nav-buttons side="right">
@@ -14,15 +14,20 @@
         </ion-nav-view>
     </ion-side-menu-content>
 
-<!--sidemenu-right-->
     <ion-side-menu side="right">
         <ion-content >
             <ion-list >
+<<<<<<< HEAD
                 <ion-item menu-close ng-repeat="device in devices" ng-click="setDevice(device.id)" href="#/app/main/{{device.id}}">
                     {{device.name}}
+=======
+                <ion-item menu-close ng-repeat="imager in devices" ng-href="#/app/Imager/{{imager.id}}">
+                    {{imager.name}}
+>>>>>>> origin/master
                 </ion-item>
             </ion-list >
         </ion-content>
     </ion-side-menu>
 
 </ion-side-menus>
+

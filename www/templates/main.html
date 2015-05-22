@@ -1,14 +1,26 @@
 
 <ion-view hide-nav-bar="true">
     <ion-pane>
-        <ion-content class="background_image" ng-repeat="weather in weathers" ng-style="{'background-image':'url({{weather.photo}})'}">
-            <div class="dataInfo">
-                <h2>{{weather.sysTime}}</h2>
-                <p>Temperature: {{weather.temp}}</p>
-                <p>Humidity: {{weather.hum}}</p>
-                <p>Dew point: {{weather.dewP}}</p>
-                <p>Wind speed: {{weather.windS}}</p>
+        <ion-content >
+
+      <ion-slide-box active-slide="myActiveSlide">
+         <ion-slide class="background_image" ng-repeat="device in weather.devices" ng-style="{'background-image':'url('+ device.photo +')'}">
+            <div class="time">
+                <p>Page-Slide</p>
+                <p>{{device.date}}<p>
             </div>
-        </ion-content>
-    </ion-pane>
+            <div class="location">
+                <p>{{device.name}}</p>
+            </div>
+            <div class="weather">
+                <p>Temperature: {{device.temperature}}</p>
+                <p>Humidity: {{device.humidity}}</p>
+                <p>Wind speed: {{device.wind_speed}}</p>
+            </div>
+         </ion-slide>
+
+      </ion-slide-box>
+
+                </ion-content>
+            </ion-pane>
 </ion-view>
