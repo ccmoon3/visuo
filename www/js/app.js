@@ -1,4 +1,4 @@
-angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
+angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -13,12 +13,13 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
   });
 })
 
- .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+ .config(function ($stateProvider, $urlRouterProvider,$httpProvider) {
 
-    $httpProvider.defaults.withCredentials = true;
-
-    $httpProvider.defaults.headers.put['Content-Type'] = 'X-Requested-With';
-    $httpProvider.defaults.headers.post['Content-Type'] = 'X-Requested-With';
+$httpProvider.defaults.useXDomain = true;
+$httpProvider.defaults.withCredentials = true;
+delete $httpProvider.defaults.headers.common["X-Requested-With"];
+$httpProvider.defaults.headers.common["Accept"] = "application/json";
+$httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
     $stateProvider
 
@@ -26,7 +27,7 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
         url: "/app",
         abstract: true,
         templateUrl: "templates/menu.html",
-        controller: 'WeatherCtrl'
+
       })
 
       .state('app.main', {
@@ -34,18 +35,17 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services'])
         views:{
            'menuContent':{
                templateUrl: "templates/main.html",
-               controller: 'WeatherCtrl'
            }
         }
       })
 
 
       .state('app.device', {
-         url: "/main/:deviceId",
+         url: "/Imager/:imagerId",
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
-                controller: 'WeatherCtrl'
+                controller:"DeviceCtrl",
             }
         }
       });
