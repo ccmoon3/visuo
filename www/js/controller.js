@@ -1,6 +1,6 @@
 angular.module('visuo.controllers', [])
 
-.controller("WeatherCtrl",function ($scope, $http){
+.controller("WeatherCtrl",function ($scope, $http,$ionicSlideBoxDelegate){
      $scope.weather= {};
      $scope.weather.devices = [];
 
@@ -9,6 +9,7 @@ angular.module('visuo.controllers', [])
                  for ( i in $scope.weather.devices){
                         getDeviceData(i);
                  }
+                 $ionicSlideBoxDelegate.update();
             })
 
      var getDeviceData = function (i){
