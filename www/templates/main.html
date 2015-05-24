@@ -3,41 +3,20 @@
     <ion-pane>
         <ion-content >
 
-      <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideSwipe()" disable-scroll="false">
-<!--
+      <ion-slide-box active-slide="myActiveSlide">
          <ion-slide class="background_image" ng-repeat="device in weather.devices" ng-style="{'background-image':'url('+ device.photo +')'}">
-             <div class="time">
-                {{device.date}}
+            <div class="time">
+                <p>{{device.date}}<p>
             </div>
             <div class="location">
-                {{device.id}}  {{device.location}}
+                <p>{{device.id}}  {{device.location}}</p>
             </div>
-             <div class="square_containter">
-             <div class="data_container"></div>
-             <div class="data">Temperature: {{device.temperature}}</div>
-             <div class="data">Humidity: {{device.humidity}}</div>
-             <div class="data">Wind speed: {{device.wind_speed}}</div>
-             </div>
+            <div class="weather">
+                <p>Temperature: {{device.temperature}}</p>
+                <p>Humidity: {{device.humidity}}</p>
+                <p>Wind speed: {{device.wind_speed}}</p>
+            </div>
          </ion-slide>
--->
-          <ion-slide  ng-repeat="device in weather.devices">
-              <div class="time">
-                  {{device.date}}
-              </div>
-              <div class="location">
-                  {{device.id}}  {{device.location}}
-              </div>
-
-              <div class="floatedContainer">
-              <div class="floated">
-                      <img ng-src="{{device.photo}}"/>
-              </div>
-              </div>
-                  <div class="data">Temperature: {{device.temperature}}</div>
-                  <div class="data">Humidity: {{device.humidity}}</div>
-                  <div class="data">Wind speed: {{device.wind_speed}}</div>
-
-          </ion-slide>
 
       </ion-slide-box>
 
