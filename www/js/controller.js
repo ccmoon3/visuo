@@ -18,6 +18,12 @@ angular.module('visuo.controllers', [])
           })
      }
 
+     $scope.setActive = function(i){
+       $ionicSlideBoxDelegate.slide(i);
+    //   $scope.myActiveSlide = i;
+   //    console.log($scope.myActiveSlide);
+     }
+
 })
 
 .controller("DeviceCtrl",function ($scope, $http, $stateParams){
