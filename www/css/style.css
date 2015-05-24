@@ -1,7 +1,8 @@
-/* Empty. Add your own CSS if you like */
 body{
      background-color: black;
-     height:100%
+     height:100%;
+     width:100%;
+     margin:0;
 }
 
 .menu, .view, .list, .item, .item-content       {
@@ -22,26 +23,80 @@ body{
 
 
 .background_image{
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    -ms-background-size: contain;
-    background-size: contain;
+    -webkit-background-size: 145%;
+    -moz-background-size: 145%;
+    -o-background-size: 145%;
+    -ms-background-size: 145%;
+    background-size: 145%;
     background-repeat: no-repeat;
-    background-position: 50% 40%;
+    background-position: 50% 45%;
     background-attachment:fixed;
     background-color: black;
     overflow:auto;
 }
 
-.weather{
+.floatedContainer{
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    position: relative;
+
+}
+.floated{
+    width: 140%;
+    height:140%;
+    float: center;
+    margin-left:-20%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; //ie8
+    display:block;
+    position: relative;
+}
+
+/*
+.square_container {
+  position: absolute;
+  vertical-align:middle;
+  margin: auto;
+  display:inline-block;
+  width: 100%;
+}
+
+.data_container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}*/
+.slider-pager-page
+{
+    color: #E0E0E0 !important;
+    font-size:3vw;
+
+}
+.slider-pager-page.active
+{
+    color: #E0E0E0 !important;
+    font-size:3vw;
+}
+
+
+.data{
        text-align: center;
-       padding:100% 0% 15% 0%;
+       margin:0;
+       font-size: 5vw;
+       line-height:8vw;
        color: white;
 }
 
+
 .location{
        text-align: center;
+       font-size: 4vw;
+       line-height:4vw;
        padding:0px 0px 0px 0px;
        margin:0px;
        color: white;
@@ -49,8 +104,9 @@ body{
 
 .time{
        text-align: center;
-       padding:15% 0 0 0;
-       font-size:25px;
+       padding:10% 0 0 0;
+       font-size: 8vw;
+       line-height:12vw;
        margin:0px;
        color: white;
 }
