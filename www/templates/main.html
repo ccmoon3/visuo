@@ -3,8 +3,8 @@
     <ion-pane>
         <ion-content >
 
-      <ion-slide-box active-slide="myActiveSlide" nav-transition="none">
-         <ion-slide ng-repeat="device in weather.devices" >
+      <ion-slide-box active-slide="myActiveSlide" on-slide-changed="Swipe($index)">
+         <ion-slide ng-repeat="device in weather.devices"  >
             <div class="time">
                 {{device.date}}
             </div>

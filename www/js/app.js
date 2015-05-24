@@ -45,7 +45,7 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
          url: "/Imager/:imagerId",
          views:{
             'menuContent':{
-                templateUrl: "templates/select.html",
+                templateUrl: "templates/main.html",
 //               controller:"DeviceCtrl",
          //        controller:'WeatherCtrl',
             }

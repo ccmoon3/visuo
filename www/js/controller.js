@@ -1,6 +1,6 @@
 angular.module('visuo.controllers', [])
 
-.controller("WeatherCtrl",function ($scope, $http,$ionicSlideBoxDelegate){
+.controller("WeatherCtrl",function ($scope, $http, $stateParams, $ionicSlideBoxDelegate){
      $scope.weather= {};
      $scope.weather.devices = [];
 
@@ -19,10 +19,17 @@ angular.module('visuo.controllers', [])
      }
 
      $scope.setActive = function(i){
-       $ionicSlideBoxDelegate.slide(i);
-    //   $scope.myActiveSlide = i;
-   //    console.log($scope.myActiveSlide);
+       $scope.myActiveSlide = i;
+       console.log("SetActive:"+$scope.myActiveSlide);
+
      }
+
+               $scope.Swipe = function(i){
+                 $scope.myActiveSlide = i;
+                 console.log("Swipe:"+$scope.myActiveSlide);
+               }
+
+
 
 })
 
