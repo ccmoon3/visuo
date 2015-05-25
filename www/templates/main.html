@@ -6,7 +6,7 @@
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="setActive($index)">
          <ion-slide ng-repeat="device in weather.devices"  >
 
-                 <div class="row">
+                 <div id="top_container">
                      <ul class="list-center">
                          <li class="time">{{device.date}}</li>
                          <li class="location">
@@ -14,20 +14,22 @@
                          </li>
                      </ul>
                  </div>
-                 <div class="row">
-                     <div class="floatedContainer">
+
+
+                     <div id="middle_container">
+
                          <div class="floated">
                             <img ng-src="{{device.photo}}"/>
                          </div>
-                     </div>
-                 </div>
 
-                 <div class="row">
-                     <ul class="data">
-                      <li>Temperature: {{device.temperature}}</li>
-                      <li>Humidity: {{device.humidity}}</li>
-                      <li>Wind speed: {{device.wind_speed}}</li>
-                     </ul>
+                     </div>
+
+
+
+                 <div id="down_container">
+                      <div class="data">Temperature : {{device.temperature}} &deg;C</div>
+                      <div class="data">Humidity : {{device.humidity}} %</div>
+                      <div class="data">Wind Speed : {{device.wind_speed}} m/s</div>
                  </div>
 
          </ion-slide>
