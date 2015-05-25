@@ -6,13 +6,6 @@ angular.module('visuo.controllers', [])
 .controller("WeatherCtrl",function ($scope, $http, $ionicSlideBoxDelegate){
      $scope.weather= {};
      $scope.weather.devices =[];
-  /*        $http.get("https://www.visuo.adsc.com.sg/api/app/?format=json").success(function(data){
-                 $scope.weather.devices = data.imagers;
-                 for ( i in $scope.weather.devices){
-                        getDeviceData(i);
-                 }
-                 $ionicSlideBoxDelegate.update();
-            })*/
 
                     $http({
                         method: 'GET',
@@ -41,15 +34,5 @@ angular.module('visuo.controllers', [])
 
      }
 
-               $scope.Swipe = function(i){
-                 $scope.myActiveSlide = i;
-                 console.log("Swipe:"+$scope.myActiveSlide);
-               }
 
-
-
-})
-
-.controller("DeviceCtrl",function ($scope, $http, $stateParams){
-     $scope.myActiveSlide= $stateParams.imagerId;
 });
