@@ -59,10 +59,10 @@ body{
 
 }
 .floated{
-    width: 140%;
-    height:140%;
+    width: 150%;
+    height:150%;
     float: center;
-    margin-left:-20%;
+    margin-left:-25%;
 }
 
 img {
@@ -74,6 +74,7 @@ img {
 }
 .slider, .slider-slide {
   height: 100%;
+  animation: none;
 }
 
 
@@ -92,15 +93,15 @@ img {
 .list-center{
        text-align: center;
        width: 100%;
-       margin:0% 0 3% 0;
+       margin:0% 0 2% 0;
        color: white;
 }
 
 .data{
        text-align: center;
-       margin:3% 0 15% 0;
+       margin:0 0 15% 0;
        width:100%;
-       font-size: 5vw;
+       font-size: 6vw;
        line-height:8vw;
        color: white;
 }
@@ -111,9 +112,8 @@ img {
 }
 
 .location{
-       font-size: 4vw;
-       line-height:4vw;
-       padding:0px 0px 0px 0px;
+       font-size: 5vw;
+       line-height:7vw;
 
 }
 
@@ -121,21 +121,8 @@ img {
        padding:15% 0 0 0;
        font-size:25px;
        padding:10% 0 0 0;
-       font-size: 8vw;
-       line-height:12vw;
+       font-size: 9vw;
+       line-height:14vw;
 
 }
 
-.empty_container {
-  position: absolute;
-  vertical-align:middle;
-  margin: auto;
-  display:inline-block;
-  width: 100%;
-}
-
-.empty {
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-}

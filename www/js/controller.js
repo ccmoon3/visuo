@@ -3,7 +3,7 @@ angular.module('visuo.controllers', [])
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|chrome-extension|cdvfile|content):|data:image\//);
         })
 
-.controller("WeatherCtrl",function ($scope, $http, $stateParams, $ionicSlideBoxDelegate){
+.controller("WeatherCtrl",function ($scope, $http, $ionicSlideBoxDelegate){
      $scope.weather= {};
      $scope.weather.devices =[];
   /*        $http.get("https://www.visuo.adsc.com.sg/api/app/?format=json").success(function(data){
