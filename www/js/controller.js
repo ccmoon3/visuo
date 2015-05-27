@@ -7,6 +7,23 @@ angular.module('visuo.controllers', [])
      $scope.weather= {};
      $scope.weather.devices =[];
 
+     $scope.doRefresh = function() {
+
+           $http({
+             method: 'GET',
+             url: 'https://www.visuo.adsc.com.sg/api/app/?format=json',
+           }).success(function(data) {
+                $scope.weather.devices = data.imagers;
+                for ( i in $scope.weather.devices){
+                     getDeviceData(i);
+                }
+                $ionicSlideBoxDelegate.update();
+                }).error(function(data, status,config,headers) {
+                     alert(headers);
+                }).finally(function() {
+                     $scope.$broadcast('scroll.refreshComplete');
+                });
+     };
                     $http({
                         method: 'GET',
                         url: 'https://www.visuo.adsc.com.sg/api/app/?format=json',

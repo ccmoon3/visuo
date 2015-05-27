@@ -2,7 +2,9 @@
 <ion-view hide-nav-bar="true">
     <ion-pane>
         <ion-content >
-
+            <ion-refresher
+                    on-refresh="doRefresh()">
+            </ion-refresher>
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="setActive($index)">
          <ion-slide ng-repeat="device in weather.devices"  >
 
