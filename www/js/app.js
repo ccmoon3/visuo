@@ -7,10 +7,16 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute']
   /*  if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }*/
+   //    $cordovaStatusbar.overlaysWebView(true)
+
+   //     $cordovaStatusBar.style(1) //Light
     if(window.StatusBar) {
-      StatusBar.styleDefault();
+           StatusBar.overlaysWebView(false);
+    //        StatusBar.styleBlackTranslucent();
+    StatusBar.backgroundColorByName("black");
     }
   });
+
 })
 
 
