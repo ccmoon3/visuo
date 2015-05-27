@@ -1,5 +1,4 @@
 /* Empty. Add your own CSS if you like */
-var ratio = window.screen.width/window.screen.height;
 
 body{
      background-color: black;
@@ -19,6 +18,7 @@ body{
     background-color: transparent!important;
     border-color: rgb(96,96,96);
     color: white;
+    height: 100%;
 }
 
 
@@ -27,53 +27,17 @@ body{
 }
 
 
-.background_image{
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    -ms-background-size: contain;
-    background-size: contain;
-    -webkit-background-size: 145%;
-    -moz-background-size: 145%;
-    -o-background-size: 145%;
-    -ms-background-size: 145%;
-    background-size: 145%;
-    background-repeat: no-repeat;
-    background-position: 50% 40%;
-    background-position: 50% 45%;
-    background-attachment:fixed;
-    background-color: black;
-    overflow:auto;
-}
 
-/*
 #middle_container{
-    width: 100%;
-    height:62%;
-    overflow: hidden;
-}
-
-.floated{
-    width: 150%;
-    height:150%;
-    margin-left:-25%;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    width: auto\9; //ie8
-}*/
-.wrapper {
-  height:62%;
-  line-height:62%;
+  height:60%;
+  line-height:60%;
   overflow:hidden;
   text-align:center;
   width:100%;
 }
 img {
-  margin-left:-25%;
-  max-width: 150%;
+  margin-left:-22.5%;
+  max-width: 145%;
   height: auto;
 }
 
@@ -83,7 +47,7 @@ img {
 }
 
 #top_container{
-   height:16%;
+ //  height:16%;
    padding: 8vh 0 0 0; //padding header
    width:80%;
 }
