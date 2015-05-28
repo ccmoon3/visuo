@@ -3,28 +3,27 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute']
 .run(function($ionicPlatform,$ionicLoading) {
   $ionicPlatform.ready(function() {
 
-       $ionicLoading.show({
-             template:'<div class="title">Visuo</div>'+
-                         '<ion-spinner icon="spiral">'+
-                         '</ion-spinner>',
-             animation:'fade-in',
-             showBackdrop:true,
-             maxWidth: 0,
-             showDelay: 0
-       });
-
     if(window.StatusBar) {
+           if(ionic.Platform.isIOS()){
+               ionic.Platform.fullScreen();
+           }
            StatusBar.overlaysWebView(false);
            StatusBar.backgroundColorByName("black");
     }
-             var deviceHeight = $( window ).height()-10;
+             var deviceHeight = $( window ).height();
              var deviceWidth = $( window ).width();
-             var vh = deviceHeight/100;
-             var vw = deviceWidth/100;
-             var vwTime = 7.5*vw;
-             var vhTime = 6*vh;
              $('.slider').css('height', deviceHeight);
              $('.slider-slide').css('height', deviceHeight);
+
+                    $ionicLoading.show({
+                          template:'<div class="title">Visuo</div>'+
+                                      '<ion-spinner icon="spiral">'+
+                                      '</ion-spinner>',
+                          animation:'fade-in',
+                          showBackdrop:true,
+                          maxWidth: 0,
+                          showDelay: 0
+                    });
 
     })
   })
