@@ -3,21 +3,11 @@ angular.module('visuo.controllers', [])
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|chrome-extension|cdvfile|content):|data:image\//);
         })
 
-.controller("WeatherCtrl",function ($scope, $http, $ionicSlideBoxDelegate, $timeout,$ionicLoading){
+.controller("WeatherCtrl",function ($scope, $http,$ionicSlideBoxDelegate, $timeout,$ionicLoading){
 
      $scope.weather= {};
      $scope.weather.devices =[];
      var flag;
-
-     $ionicLoading.show({
-      //    content:'<div class="ionic-logo"></div>',
-          template:'<ion-spinner icon="lines" class="spinner-calm"></ion-spinner>',
-          animation:'fade-in',
-          showBackdrop:true,
-          maxWidth: 0,
-          showDelay: 0
-     });
-
 
      $scope.doRefresh = function() {
 
@@ -63,10 +53,10 @@ angular.module('visuo.controllers', [])
           }).finally(function(){
              flag++;
              if(flag == total){
+                 $ionicSlideBoxDelegate.update();
                  $timeout(function(){
-                       $ionicSlideBoxDelegate.update();
                        $ionicLoading.hide();
-                 },1000);
+                 },2000);
              }
           });
       }

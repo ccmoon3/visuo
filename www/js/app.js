@@ -1,51 +1,40 @@
 angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute'])
 
-.run(function($ionicPlatform,$rootScope, $ionicLoading) {
+.run(function($ionicPlatform,$ionicLoading) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-  /*  if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }*/
-   //    $cordovaStatusbar.overlaysWebView(true)
 
-   //     $cordovaStatusBar.style(1) //Light
-         var deviceHeight = $( window ).height()-10;
-         var deviceWidth = $( window ).width();
-         var vh = deviceHeight/100;
-         var vw = deviceWidth/100;
-         var vwTime = 7.5*vw;
-         var vhTime = 6*vh;
-         $('.slider').css('height', deviceHeight);
-         $('.slider-slide').css('height', deviceHeight);
+       $ionicLoading.show({
+             template:'<div class="title">Visuo</div>'+
+                         '<ion-spinner icon="spiral">'+
+                         '</ion-spinner>',
+             animation:'fade-in',
+             showBackdrop:true,
+             maxWidth: 0,
+             showDelay: 0
+       });
 
     if(window.StatusBar) {
            StatusBar.overlaysWebView(false);
-    //        StatusBar.styleBlackTranslucent();
-    StatusBar.backgroundColorByName("black");
+           StatusBar.backgroundColorByName("black");
     }
-  /*    $rootScope.$on('loading:show', function() {
-        $ionicLoading.show({
-            content:'<div class="ionic-logo"></div>',
-            animation:'fade-in',
-            showBackdrop:true,
-            maxWidth: 0,
-            showDelay: 0
-        });
-      })
+             var deviceHeight = $( window ).height()-10;
+             var deviceWidth = $( window ).width();
+             var vh = deviceHeight/100;
+             var vw = deviceWidth/100;
+             var vwTime = 7.5*vw;
+             var vhTime = 6*vh;
+             $('.slider').css('height', deviceHeight);
+             $('.slider-slide').css('height', deviceHeight);
 
-      $rootScope.$on('loading:hide', function() {
-        $ionicLoading.hide();
-      })
-      $rootScope.$broadcast('loading:show');*/
-  });
+    })
+  })
 
   //    $('.time').css('marginTop',vh8);
   //    $('.top_container').css({'padding-top':'40px','height':'80px'});
   //    $('.time').css({'font-size': vwTime+'px','line-height':vhTime+'px'});
   //    $('.top_container').css('padding-top',vh8);
 
-})
+
 
 
  .config(function ($stateProvider, $urlRouterProvider,$httpProvider) {
