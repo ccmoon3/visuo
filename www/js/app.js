@@ -1,6 +1,6 @@
 angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope, $ionicLoading) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -24,6 +24,20 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute']
     //        StatusBar.styleBlackTranslucent();
     StatusBar.backgroundColorByName("black");
     }
+  /*    $rootScope.$on('loading:show', function() {
+        $ionicLoading.show({
+            content:'<div class="ionic-logo"></div>',
+            animation:'fade-in',
+            showBackdrop:true,
+            maxWidth: 0,
+            showDelay: 0
+        });
+      })
+
+      $rootScope.$on('loading:hide', function() {
+        $ionicLoading.hide();
+      })
+      $rootScope.$broadcast('loading:show');*/
   });
 
   //    $('.time').css('marginTop',vh8);
@@ -42,6 +56,19 @@ $httpProvider.defaults.withCredentials = true;
 delete $httpProvider.defaults.headers.common["X-Requested-With"];
 $httpProvider.defaults.headers.common["Accept"] = "application/json";
 $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+/*
+$httpProvider.interceptors.push(function($rootScope) {
+    return {
+      request: function(config) {
+        $rootScope.$broadcast('loading:show');
+        return config;
+      },
+      response: function(response) {
+        $rootScope.$broadcast('loading:hide');
+        return response;
+      }
+    }
+  });*/
 
     $stateProvider
 
