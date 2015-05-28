@@ -4,6 +4,7 @@ angular.module('visuo.controllers', [])
         })
 
 .controller("WeatherCtrl",function ($scope, $http, $ionicSlideBoxDelegate){
+
      $scope.weather= {};
      $scope.weather.devices =[];
 

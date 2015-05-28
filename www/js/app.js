@@ -10,12 +10,26 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute']
    //    $cordovaStatusbar.overlaysWebView(true)
 
    //     $cordovaStatusBar.style(1) //Light
+         var deviceHeight = $( window ).height()-10;
+         var deviceWidth = $( window ).width();
+         var vh = deviceHeight/100;
+         var vw = deviceWidth/100;
+         var vwTime = 7.5*vw;
+         var vhTime = 6*vh;
+         $('.slider').css('height', deviceHeight);
+         $('.slider-slide').css('height', deviceHeight);
+
     if(window.StatusBar) {
            StatusBar.overlaysWebView(false);
     //        StatusBar.styleBlackTranslucent();
     StatusBar.backgroundColorByName("black");
     }
   });
+
+  //    $('.time').css('marginTop',vh8);
+  //    $('.top_container').css({'padding-top':'40px','height':'80px'});
+  //    $('.time').css({'font-size': vwTime+'px','line-height':vhTime+'px'});
+  //    $('.top_container').css('padding-top',vh8);
 
 })
 
