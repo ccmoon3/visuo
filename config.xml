@@ -21,7 +21,7 @@
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="FadeSplashScreen" value="true" />
-    <preference name="FadeSplashScreenDuration" value="4" />
+    <preference name="FadeSplashScreenDuration" value="15" />
 
     <preference name="SplashMaintainAspectRatio" value="true" />
   <feature name="StatusBar">
