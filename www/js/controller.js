@@ -8,8 +8,13 @@ angular.module('visuo.controllers', [])
      $scope.weather= {};
      $scope.weather.devices =[];
      var flag;
-
      $scope.doRefresh = function() {
+            $ionicLoading.show({
+                    animation:'fade-in',
+                    showBackdrop:true,
+                    maxWidth: 0,
+                    showDelay: 0
+            });
 
            $http({
              method: 'GET',
@@ -22,9 +27,13 @@ angular.module('visuo.controllers', [])
                  $ionicSlideBoxDelegate.update();
 
                 }).error(function(data, err) {
-                     alert(err);
+                //     $scope.templateUrl
                 }).finally(function() {
                      $scope.$broadcast('scroll.refreshComplete');
+                     $ionicSlideBoxDelegate.update();
+                     $timeout(function(){
+                         $ionicLoading.hide();
+                     },500);
                 });
 
      };
@@ -40,7 +49,14 @@ angular.module('visuo.controllers', [])
                    getDeviceData(i,$scope.weather.devices.length);
                }
            }).error(function(data, status,config,headers) {
-               alert(headers);
+               //Oops! Check your Internet and pull to refresh.
+               $scope.weather.devices =[{
+                                            photo:"./img/fail.png"
+                                         }];
+               $ionicSlideBoxDelegate.update();
+               $timeout(function(){
+                    $ionicLoading.hide();
+               },500);
            });
 
 
@@ -50,6 +66,13 @@ angular.module('visuo.controllers', [])
      var getDeviceData = function (i,total){
           $http.get("https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/?format=json").success(function(data){
               $.extend($scope.weather.devices[i], data, {photo:"https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/image/"});
+          }).error(function(data) {
+                $.extend($scope.weather.devices[i], data, {photo:"./img/fail.png"});
+                //Oops! Try this device later..
+                $ionicSlideBoxDelegate.update();
+                $timeout(function(){
+                    $ionicLoading.hide();
+                },500);
           }).finally(function(){
              flag++;
              if(flag == total){

@@ -7,31 +7,31 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute']
            if(ionic.Platform.isIOS()){
                ionic.Platform.fullScreen();
            }
+
            StatusBar.overlaysWebView(false);
            StatusBar.backgroundColorByName("black");
+
+       $ionicLoading.show({
+              template:'<div class="title">Visuo</div>'+
+                       '<ion-spinner icon="spiral">'+
+                       '</ion-spinner>',
+               animation:'fade-in',
+               showBackdrop:true,
+               maxWidth: 0,
+               showDelay: 0
+       });
+
+       setTimeout(function() {
+            navigator.splashscreen.hide();
+       }, 500);
     }
+
              var deviceHeight = $( window ).height();
              var deviceWidth = $( window ).width();
              $('.slider').css('height', deviceHeight);
              $('.slider-slide').css('height', deviceHeight);
-
-                    $ionicLoading.show({
-                          template:'<div class="title">Visuo</div>'+
-                                      '<ion-spinner icon="spiral">'+
-                                      '</ion-spinner>',
-                          animation:'fade-in',
-                          showBackdrop:true,
-                          maxWidth: 0,
-                          showDelay: 0
-                    });
-
     })
   })
-
-  //    $('.time').css('marginTop',vh8);
-  //    $('.top_container').css({'padding-top':'40px','height':'80px'});
-  //    $('.time').css({'font-size': vwTime+'px','line-height':vhTime+'px'});
-  //    $('.top_container').css('padding-top',vh8);
 
 
 
