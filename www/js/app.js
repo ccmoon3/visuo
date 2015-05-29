@@ -1,6 +1,6 @@
 angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute','ngCordova'])
 
-.run(function($ionicPlatform, $ionicLoading, $cordovaSplashscreen) {
+.run(function($ionicPlatform, $ionicLoading) {
   $ionicPlatform.ready(function() {
 
     if(window.StatusBar) {
@@ -23,7 +23,7 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
 
        setTimeout(function() {
             navigator.splashscreen.hide();
-       }, 1500);
+       }, 2000);
     }
 
              var deviceHeight = $( window ).height();

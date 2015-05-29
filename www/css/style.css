@@ -3,13 +3,13 @@
 body{
      background-color: black;
      height:100%
-     width:calc(100%-2px);
+     width:100%;
      margin:0;
      background-size: cover;
 }
 
 .trans_header{
-      background: none;
+      background: none!important;
       border-style: solid;
     //  border-top:thin solid #7a7a7a;
       border-top:none;
@@ -44,7 +44,7 @@ body{
   width:100%;
 }
 img {
-  margin-left:-22.5%;
+  margin-left:-22.5%!important;
   max-width: 145%;
   height: auto;
 }
