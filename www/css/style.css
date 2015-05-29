@@ -20,9 +20,9 @@ body{
 
 .menu, .list,.item, .item-content       {
     background-color: transparent!important;
-    border-color: #7a7a7a;
+    border-color: #545454;
+    box-shadow:0px -1px 3px #545454,0px -1px 10px #545454,0px -1px 20px #545454;
     border-top:none;
-    border-left:none;
     color: white;
     height: 100%;
 }
@@ -32,7 +32,7 @@ body{
    background-color: black!important;
 }
 .menu-content{
-   box-shadow:0px 2px 35px #545454;
+   box-shadow:4px 10px 20px #545454;
 }
 
 
@@ -71,16 +71,21 @@ img {
 .data{
   text-align:center;
   color: white;
-//  font-size:4.6vw;
+  font-size:4.6vw;
   font-size:0.9rem;
   height:22%;
 
 }
 
 .spinner svg{
-  width:2.5rem;
-  height:2.5rem;
+  width:2rem;
+  height:2rem;
   stroke:rgb(209, 240, 255);
+//  stroke: #C2EBFF;
+}
+
+.ion-arrow-down-c{
+  color:rgb(163, 182, 191)!important;
 }
 
 .title{
@@ -95,36 +100,12 @@ img {
 
 
 .loading{
-   background-color:black!important;
+   background-color:rgba(0,0,0,0.65)!important;
    position: absolute !important;
    top:0 !important;
    bottom: 0 !important;
    left: 0 !important;
    right: 0 !important;
-  /* padding: 0 !important;
-   border-radius: 0 !important;
-
-  /*   display: -webkit-box;
-     display: -moz-box;
-     display: -ms-flexbox;
-     display: -webkit-flex;
-     display: flex;
-
-/*
-     -webkit-box-pack: center;
-     -moz-box-pack: center;
-     -webkit-justify-content: center;
-     -ms-flex-pack: center;
-     justify-content: center;
-/*
-     -webkit-align-content: stretch;
-     -ms-flex-line-pack: stretch;
-     align-content: stretch;
-     -webkit-box-align: center;
-     -moz-box-align: center;
-     -webkit-align-items: center;
-     -ms-flex-align: center;
-     align-items: center;*/
 
 }
 
@@ -149,16 +130,16 @@ img {
 
 
 .location{
-  //     font-size: 4vw;
-  //     line-height:3vh;
+       font-size: 4vw;
+       line-height:3vh;
               font-size: 0.85rem;
               line-height:1rem;
        padding: 0 ;
 }
 
 .time{
-  //     font-size: 7.5vw;
- //      line-height:6vh;
+       font-size: 7.5vw;
+       line-height:6vh;
             font-size: 1.5rem;
               line-height:2rem;
 }

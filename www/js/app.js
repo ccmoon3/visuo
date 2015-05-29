@@ -1,17 +1,17 @@
-angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute'])
+angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute','ngCordova'])
 
-.run(function($ionicPlatform,$ionicLoading) {
+.run(function($ionicPlatform, $ionicLoading, $cordovaSplashscreen) {
   $ionicPlatform.ready(function() {
 
     if(window.StatusBar) {
            if(ionic.Platform.isIOS()){
                ionic.Platform.fullScreen();
+           }else{
+               StatusBar.overlaysWebView(false);
+               StatusBar.backgroundColorByName("black");
            }
 
-           StatusBar.overlaysWebView(false);
-           StatusBar.backgroundColorByName("black");
-
-       $ionicLoading.show({
+   /*    $ionicLoading.show({
               template:'<div class="title">Visuo</div>'+
                        '<ion-spinner icon="spiral">'+
                        '</ion-spinner>',
@@ -19,11 +19,11 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute']
                showBackdrop:true,
                maxWidth: 0,
                showDelay: 0
-       });
+       });*/
 
        setTimeout(function() {
             navigator.splashscreen.hide();
-       }, 500);
+       }, 1500);
     }
 
              var deviceHeight = $( window ).height();
@@ -44,19 +44,7 @@ $httpProvider.defaults.withCredentials = true;
 delete $httpProvider.defaults.headers.common["X-Requested-With"];
 $httpProvider.defaults.headers.common["Accept"] = "application/json";
 $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
-/*
-$httpProvider.interceptors.push(function($rootScope) {
-    return {
-      request: function(config) {
-        $rootScope.$broadcast('loading:show');
-        return config;
-      },
-      response: function(response) {
-        $rootScope.$broadcast('loading:hide');
-        return response;
-      }
-    }
-  });*/
+
 
     $stateProvider
 
@@ -64,7 +52,6 @@ $httpProvider.interceptors.push(function($rootScope) {
         url: "/app",
         abstract: true,
         templateUrl: "templates/menu.html",
-  //      controller:'WeatherCtrl',
       })
 
       .state('app.main', {
@@ -72,7 +59,6 @@ $httpProvider.interceptors.push(function($rootScope) {
         views:{
            'menuContent':{
                templateUrl: "templates/main.html",
-   //            controller:'WeatherCtrl',
            }
         }
       })
@@ -83,8 +69,6 @@ $httpProvider.interceptors.push(function($rootScope) {
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
-//               controller:"DeviceCtrl",
-         //        controller:'WeatherCtrl',
             }
         }
       });

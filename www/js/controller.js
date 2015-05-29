@@ -3,38 +3,49 @@ angular.module('visuo.controllers', [])
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|chrome-extension|cdvfile|content):|data:image\//);
         })
 
-.controller("WeatherCtrl",function ($scope, $http,$ionicSlideBoxDelegate, $timeout,$ionicLoading){
+.controller("WeatherCtrl",function ($scope,$state, $http,$ionicSlideBoxDelegate, $timeout,$ionicLoading){
 
      $scope.weather= {};
      $scope.weather.devices =[];
+
      var flag;
      $scope.doRefresh = function() {
             $ionicLoading.show({
                     animation:'fade-in',
-                    showBackdrop:true,
+                    showBackdrop:false,
                     maxWidth: 0,
                     showDelay: 0
             });
-
+       //     $state.go($state.current,{},{reload:true});
+     $scope.weather= {};
+     $scope.weather.devices =[];
            $http({
              method: 'GET',
              url: 'https://www.visuo.adsc.com.sg/api/app/?format=json',
            }).success(function(data,err) {
                 $scope.weather.devices = data.imagers;
+                flag = 0;
                 for ( i in $scope.weather.devices){
                      getDeviceData(i);
                 }
                  $ionicSlideBoxDelegate.update();
-
-                }).error(function(data, err) {
-                //     $scope.templateUrl
-                }).finally(function() {
+                 console.log("SliderCount:"+$ionicSlideBoxDelegate.slidesCount());
+           }).error(function(data, err) {
+               //Oops! Check your Internet and pull to refresh.
+               $scope.weather.devices =[{
+                                            photo:"./img/fail.png"
+                                         }];
+               $ionicSlideBoxDelegate.update();
+               $timeout(function(){
+                     $ionicLoading.hide();
+               },500);
+           }).finally(function() {
                      $scope.$broadcast('scroll.refreshComplete');
                      $ionicSlideBoxDelegate.update();
                      $timeout(function(){
                          $ionicLoading.hide();
-                     },500);
-                });
+                     },2000);
+           });
 
      };
 
@@ -48,6 +59,7 @@ angular.module('visuo.controllers', [])
                for ( i in $scope.weather.devices){
                    getDeviceData(i,$scope.weather.devices.length);
                }
+               $ionicSlideBoxDelegate.update();
            }).error(function(data, status,config,headers) {
                //Oops! Check your Internet and pull to refresh.
                $scope.weather.devices =[{
@@ -79,7 +91,7 @@ angular.module('visuo.controllers', [])
                  $ionicSlideBoxDelegate.update();
                  $timeout(function(){
                        $ionicLoading.hide();
-                 },2000);
+                 },1000);
              }
           });
       }
@@ -89,7 +101,6 @@ angular.module('visuo.controllers', [])
      $scope.setActive = function(i){
        $scope.myActiveSlide = i;
        console.log("SetActive:"+$scope.myActiveSlide);
-
      }
 
 });
