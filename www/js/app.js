@@ -58,9 +58,11 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
       .state('app.main', {
         url: "/main",
+        cache:false,
         views:{
            'menuContent':{
                templateUrl: "templates/main.html",
+               cache:false,
            }
         }
       })
@@ -68,9 +70,11 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
       .state('app.device', {
          url: "/Imager/:imagerId",
+         cache:false,
          views:{
             'menuContent':{
                 templateUrl: "templates/main.html",
+                cache:false,
             }
         }
       });

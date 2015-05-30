@@ -2,11 +2,11 @@
 <ion-view hide-nav-bar="true">
     <ion-pane>
         <ion-content>
-            <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-arrow-down-c">
+            <ion-refresher refreshing-text="Loading.." on-refresh="doRefresh()" pulling-icon="ion-arrow-down-c">
             </ion-refresher>
-            <div class="splash">
+       <!--     <div class="splash">
 
-            </div>
+            </div>-->
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="setActive($index)">
 
          <ion-slide ng-repeat="device in weather.devices"  >
