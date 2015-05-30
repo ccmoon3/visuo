@@ -4,18 +4,18 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
   $ionicPlatform.ready(function() {
 
     if(window.StatusBar) {
-           if(ionic.Platform.isIOS()){
-               ionic.Platform.fullScreen();
+          if(ionic.Platform.isIOS()){
+              ionic.Platform.fullScreen();
            }else{
                StatusBar.overlaysWebView(false);
-               StatusBar.backgroundColorByName("black");
+    //           StatusBar.backgroundColorByName("black");
            }
 
-   /*    $ionicLoading.show({
+ /*      $ionicLoading.show({
               template:'<div class="title">Visuo</div>'+
                        '<ion-spinner icon="spiral">'+
                        '</ion-spinner>',
-               animation:'fade-in',
+         //      animation:'fade-in',
                showBackdrop:true,
                maxWidth: 0,
                showDelay: 0
@@ -23,7 +23,9 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
 
        setTimeout(function() {
             navigator.splashscreen.hide();
-       }, 2000);
+      //      alert("Hide");
+            $('.splash').fadeOut(1000);
+       }, 1000);
     }
 
              var deviceHeight = $( window ).height();

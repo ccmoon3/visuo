@@ -5,7 +5,6 @@ body{
      height:100%
      width:100%;
      margin:0;
-     background-size: cover;
 }
 
 .trans_header{
@@ -35,6 +34,26 @@ body{
    box-shadow:4px 10px 20px #545454;
 }
 
+
+.splash {
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cover!important;
+  background-size: cover!important;
+
+  background-image: url('../img/loading.png')!important;
+  background-position:center center!important;
+  background-repeat: no-repeat!important;
+
+ // background-attachment:fixed!important;
+  position:fixed;
+  height:100%;
+  width:100%;
+  z-index:100;
+}
 
 #middle_container{
   height:60%;
@@ -142,5 +161,6 @@ img {
        line-height:6vh;
             font-size: 1.5rem;
               line-height:2rem;
+
 }
 
