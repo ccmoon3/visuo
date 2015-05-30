@@ -7,9 +7,11 @@
        <!--     <div class="splash">
 
             </div>-->
-      <ion-slide-box active-slide="myActiveSlide" on-slide-changed="setActive($index)">
+            <div id="slider">
+      <ion-slide-box active-slide="myActiveSlide" on-slide-changed="Swipe($index)">
 
          <ion-slide ng-repeat="device in weather.devices"  >
+
                  <div id="top_container">
                      <ul class="list-center">
                          <li class="time">{{device.date}}</li>
@@ -28,8 +30,9 @@
                  </div>
 
          </ion-slide>
-      </ion-slide-box>
 
+      </ion-slide-box>
+            </div>
                 </ion-content>
             </ion-pane>
 </ion-view>

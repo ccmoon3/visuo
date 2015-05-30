@@ -93,6 +93,16 @@ angular.module('visuo.controllers', [])
      $scope.setActive = function(i){
        $scope.myActiveSlide = i;
        console.log("SetActive:"+$scope.myActiveSlide);
+
+       $('#slider').fadeOut(50,function(){
+           $('#slider').fadeIn(200);
+       });
+
      }
+
+     $scope.Swipe = function(i){
+        $scope.myActiveSlide = i;
+        console.log("SwipeFrom:"+$scope.myActiveSlide);;
+      }
 
 });

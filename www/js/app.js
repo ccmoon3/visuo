@@ -27,7 +27,6 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
             $('.splash').fadeOut(1000);
        }, 1000);
     }
-
              var deviceHeight = $( window ).height();
              var deviceWidth = $( window ).width();
              $('.slider').css('height', deviceHeight);
@@ -39,7 +38,6 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
 
 
  .config(function ($stateProvider, $urlRouterProvider,$httpProvider) {
-
 
 $httpProvider.defaults.useXDomain = true;
 $httpProvider.defaults.withCredentials = true;
