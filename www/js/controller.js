@@ -3,12 +3,14 @@ angular.module('visuo.controllers', [])
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|chrome-extension|cdvfile|content):|data:image\//);
         })
 
-.controller("WeatherCtrl",function ($scope, $http,$ionicSlideBoxDelegate, $timeout,$ionicLoading){
+.controller("WeatherCtrl",function ($scope, $state, $http,$ionicSlideBoxDelegate, $timeout,$ionicLoading){
 
      $scope.weather= {};
      $scope.weather.devices =[];
+     $scope.fail = false;
 
      var flag;
+
      $scope.doRefresh = function() {
            $ionicLoading.show({
                          animation:'fade-in',
@@ -25,13 +27,15 @@ angular.module('visuo.controllers', [])
               $scope.weather.devices[k].pressure = data.pressure;
               $scope.weather.devices[k].temperature = data.temperature;
               $scope.weather.devices[k].humidity = data.humidity;
+              $scope.fail = false;
           }).error(function(data) {
-                $scope.weather.devices[k].photo = "./img/fail.png";
-                //Oops! Try this device later..
-                $ionicSlideBoxDelegate.update();
+
+                $scope.fail = true;
+                $scope.$broadcast('scroll.refreshComplete');
                 $timeout(function(){
                     $ionicLoading.hide();
                 },500);
+
           }).finally(function(){
                  $ionicSlideBoxDelegate.update();
                  $scope.$broadcast('scroll.refreshComplete');
@@ -53,16 +57,15 @@ angular.module('visuo.controllers', [])
           for ( i in $scope.weather.devices){
                  getDeviceData(i,$scope.weather.devices.length);
           }
+          $scope.fail = false;
+
+          /**********Needed Update**********/
           $ionicSlideBoxDelegate.update();
      }).error(function(data, status,config,headers) {
-               //Oops! Check your Internet and pull to refresh.
-          $scope.weather.devices =[{
-                 photo:"./img/fail.png"
-          }];
-          $ionicSlideBoxDelegate.update();
-          $timeout(function(){
-               $ionicLoading.hide();
-          },500);
+                 $scope.fail = true;
+                 $timeout(function(){
+                     $ionicLoading.hide();
+                 },500);
      });
 
 
@@ -71,16 +74,17 @@ angular.module('visuo.controllers', [])
           $http.get("https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/?format=json").success(function(data){
               $.extend($scope.weather.devices[i], data, {photo:"https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/image/"});
           }).error(function(data) {
-                $.extend($scope.weather.devices[i], data, {photo:"./img/fail.png"});
-                //Oops! Try this device later..
-                $ionicSlideBoxDelegate.update();
-                $timeout(function(){
-                    $ionicLoading.hide();
-                },500);
+
+                 $scope.fail = true;
+                 $timeout(function(){
+                     $ionicLoading.hide();
+                 },500);
+
           }).finally(function(){
              flag++;
              if(flag == total){
                  $ionicSlideBoxDelegate.update();
+                 $scope.fail = false;
                  $timeout(function(){
                        $ionicLoading.hide();
                  },1000);
@@ -93,7 +97,9 @@ angular.module('visuo.controllers', [])
      $scope.setActive = function(i){
        $scope.myActiveSlide = i;
        console.log("SetActive:"+$scope.myActiveSlide);
-
+       if($scope.fail == true){
+         $scope.doRefresh();
+       }
        $('#slider').fadeOut(50,function(){
            $('#slider').fadeIn(200);
        });

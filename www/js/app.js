@@ -11,15 +11,6 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
     //           StatusBar.backgroundColorByName("black");
            }
 
- /*      $ionicLoading.show({
-              template:'<div class="title">Visuo</div>'+
-                       '<ion-spinner icon="spiral">'+
-                       '</ion-spinner>',
-         //      animation:'fade-in',
-               showBackdrop:true,
-               maxWidth: 0,
-               showDelay: 0
-       });*/
 
        setTimeout(function() {
             navigator.splashscreen.hide();
@@ -62,18 +53,6 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
                templateUrl: "templates/main.html",
                cache:false,
            }
-        }
-      })
-
-
-      .state('app.device', {
-         url: "/Imager/:imagerId",
-         cache:false,
-         views:{
-            'menuContent':{
-                templateUrl: "templates/main.html",
-                cache:false,
-            }
         }
       });
 

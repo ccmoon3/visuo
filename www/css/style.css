@@ -103,9 +103,7 @@ img {
 //  stroke: #C2EBFF;
 }
 
-.ion-arrow-down-c{
-  color:rgb(163, 182, 191)!important;
-}
+
 
 .title{
    font-family: 'Josefin Sans', sans-serif;
@@ -163,4 +161,101 @@ img {
             font-size: 1.5rem;
               line-height:2rem;
 
+}
+
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+body{margin: 0px;padding: 0px;background-color: black;}
+
+
+.eye{
+  width: 1.3rem; height: 0.52rem;
+  background-color: #eee;
+
+  border-radius:0 0 1.3rem 1.3rem;
+  position: relative;
+  top: 2.6rem;
+  left: 0.65rem;
+  box-shadow:2.6rem 0px 0px 0px #eee;
+}
+
+.head{
+  -webkit-backface-visibility: hidden;
+  position: relative;
+  margin: -16.3rem auto;
+  width: 5.1rem; height: 5.1rem;
+  background-color: black;
+  border-radius:3.28rem;
+  box-shadow: inset -4px 2px 0px 0px #eee;
+    -webkit-animation:node 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;
+}
+.body{
+  position: relative;
+  margin: 6rem auto;
+  width: 9.17rem; height: 7.9rem;
+  background-color: black;
+  border-radius: 3.25rem/1.63rem ;
+  box-shadow: inset -5px 2px 0px 0px #eee;
+  -webkit-animation:node2 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;
+
+}
+
+
+
+  @-webkit-keyframes node
+      {
+         0%{ top:0px; }
+         50%{ top:10px; }
+         100% { top:0px;}
+       }
+
+  @-webkit-keyframes node2
+      {
+         0%{ top:-5px; }
+         50%{ top:10px; }
+         100% { top:-5px;}
+       }
+
+.circ{
+  -webkit-backface-visibility: hidden;
+  margin: 3.9rem auto;
+  width: 11.8rem; height: 11.8rem;
+  border-radius: 0px 0px 3.25rem 3.25rem;
+  position: relative;
+  z-index: 400;
+  left: 0%;
+  margin-top:45%;
+  overflow: hidden;
+}
+
+.hands{
+  -webkit-backface-visibility: hidden;
+  margin-top: 9.17rem;
+  width: 7.9rem;height: 7.9rem;
+  position: absolute;
+
+  border-radius:2rem;
+  box-shadow:-1px -4px 0px 0px #eee;
+  -webkit-transform:rotate(45deg);
+  top:75%;left: 16%;
+  z-index: 1;
+  -webkit-animation:node2 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;
+}
+
+.load{
+  position: absolute;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size:2rem;
+  line-height:1.9rem;
+  color:#eee;
+  left: 10%;
+}
+
+.menu-animated {
+    -webkit-transition: -webkit-transform 400ms ease!important;
+    -moz-transition: -moz-transform 400ms ease!important;
+    transition: transform 400ms ease!important;
 }
