@@ -5,6 +5,7 @@ body{
      height:100%
      width:100%;
      margin:0;
+     padding:0;
 }
 
 .trans_header{
@@ -164,13 +165,12 @@ img {
 }
 
 @import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
-body{margin: 0px;padding: 0px;background-color: black;}
+
 
 
 .eye{
   width: 1.3rem; height: 0.52rem;
   background-color: #eee;
-
   border-radius:0 0 1.3rem 1.3rem;
   position: relative;
   top: 2.6rem;
@@ -223,7 +223,6 @@ body{margin: 0px;padding: 0px;background-color: black;}
   width: 11.8rem; height: 11.8rem;
   border-radius: 0px 0px 3.25rem 3.25rem;
   position: relative;
-  z-index: 400;
   left: 0%;
   margin-top:45%;
   overflow: hidden;
@@ -255,7 +254,7 @@ body{margin: 0px;padding: 0px;background-color: black;}
 }
 
 .menu-animated {
-    -webkit-transition: -webkit-transform 400ms ease!important;
-    -moz-transition: -moz-transform 400ms ease!important;
-    transition: transform 400ms ease!important;
+    -webkit-transition: -webkit-transform 300ms ease!important;
+    -moz-transition: -moz-transform 300ms ease!important;
+    transition: transform 300ms ease!important;
 }

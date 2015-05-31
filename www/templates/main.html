@@ -7,15 +7,6 @@
 
             <div class="splash"></div>
 
-            <div class="circ" ng-show="fail">
-                <div class="load">Internet Faied...</div>
-                <div class="hands"></div>
-                <div class="body"></div>
-                <div class="head">
-                    <div class="eye"></div>
-                </div>
-            </div>
-
     <div id="slider" ng-hide="fail">
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="Swipe($index)">
          <ion-slide ng-repeat="device in weather.devices"  >
@@ -40,7 +31,14 @@
          </ion-slide>
       </ion-slide-box>
    </div>
-
+            <div class="circ" ng-show="fail">
+                <div class="load">Internet Faied...</div>
+                <div class="hands"></div>
+                <div class="body"></div>
+                <div class="head">
+                    <div class="eye"></div>
+                </div>
+            </div>
   </ion-content>
  </ion-pane>
 </ion-view>
