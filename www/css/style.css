@@ -225,6 +225,7 @@ img {
   position: relative;
   left: 0%;
   margin-top:45%;
+  z-index:-10;
   overflow: hidden;
 }
 

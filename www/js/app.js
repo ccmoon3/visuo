@@ -16,7 +16,7 @@ angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute',
             navigator.splashscreen.hide();
       //      alert("Hide");
             $('.splash').fadeOut(1000);
-       }, 1000);
+       }, 1300);
     }
              var deviceHeight = $( window ).height();
              var deviceWidth = $( window ).width();
