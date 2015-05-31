@@ -7,7 +7,7 @@ angular.module('visuo.controllers', [])
 
      $scope.weather= {};
      $scope.weather.devices =[];
-     $scope.fail = true;
+     $scope.fail = false;
      var flag;
 
 
