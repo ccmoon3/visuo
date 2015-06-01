@@ -36,6 +36,7 @@ angular.module('visuo.controllers', [])
           url: 'https://www.visuo.adsc.com.sg/api/app/?format=json',
          }).success(function(data) {
              $scope.weather.devices = data.imagers;
+             $ionicSlideBoxDelegate.update();
              flag = 0;
              for ( i in $scope.weather.devices){
                  getDeviceData(i,$scope.weather.devices.length);
@@ -47,7 +48,7 @@ angular.module('visuo.controllers', [])
             $scope.$broadcast('scroll.refreshComplete');
             $timeout(function(){
                 $ionicLoading.hide();
-            },500);
+            },1300);
          });
       }
 
@@ -71,12 +72,12 @@ angular.module('visuo.controllers', [])
               flag++;
                 $scope.fail = true;
           }).finally(function(){
+             $ionicSlideBoxDelegate.update();
              if(flag == total){
-                 $ionicSlideBoxDelegate.update();
                  $scope.$broadcast('scroll.refreshComplete');
                  $timeout(function(){
                        $ionicLoading.hide();
-                 },500);
+                 },1300);
              }
           });
       }
@@ -88,9 +89,9 @@ angular.module('visuo.controllers', [])
        if($scope.fail == true){
          $scope.doRefresh();
        }
-       $('#slider').fadeOut(20,function(){
+   /*    $('#slider').fadeOut(20,function(){
            $('#slider').fadeIn(200);
-       });
+       });*/
 
      }
 

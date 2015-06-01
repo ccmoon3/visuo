@@ -49,7 +49,6 @@ body{
   background-position:center center!important;
   background-repeat: no-repeat!important;
 
- // background-attachment:fixed!important;
   position:fixed;
   height:100%;
   width:100%;
@@ -254,8 +253,11 @@ img {
   left: 10%;
 }
 
-.menu-animated {
-    -webkit-transition: -webkit-transform 300ms ease!important;
-    -moz-transition: -moz-transform 300ms ease!important;
-    transition: transform 300ms ease!important;
+.menu-animated{
+    -webkit-transition: -webkit-transform 180ms ease!important;
+    -moz-transition: -moz-transform 180ms ease!important;
+    transition: transform 180ms ease!important;
+    -webkit-transition-delay: 300ms!important;
+    -moz-transition-delay: 300ms!important;
+    transition-delay: 300ms!important;
 }
