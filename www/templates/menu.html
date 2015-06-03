@@ -1,12 +1,14 @@
 <ion-side-menus enable-menu-with-back-views="false">
 
-    <ion-side-menu-content >
+    <ion-side-menu-content>
         <ion-nav-view>
         <ion-nav-bar class="trans_header">
-            <ion-nav-buttons side="right">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+
+            <ion-nav-buttons side="right" >
+                <button ng-if="$root.full" class="button button-icon button-clear ion-navicon" menu-toggle="right">
                 </button>
             </ion-nav-buttons>
+
         </ion-nav-bar>
         </ion-nav-view>
 

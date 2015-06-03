@@ -1,4 +1,4 @@
-angular.module('Visuo', ['ionic','visuo.controllers','visuo.services','ngRoute','ngCordova'])
+angular.module('Visuo', ['ionic','visuo.controllers','ngCordova'])
 
 .run(function($ionicPlatform, $ionicLoading) {
   $ionicPlatform.ready(function() {

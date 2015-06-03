@@ -10,7 +10,6 @@
     <div id="slider" ng-hide="fail">
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="Swipe($index)">
          <ion-slide ng-repeat="device in weather.devices"  >
-
                  <div id="top_container">
                      <ul class="list-center">
                          <li class="time">{{device.date}}</li>
@@ -27,12 +26,11 @@
                       <div class="data" value="Not available">Humidity : {{device.humidity}} %</div>
                       <div class="data" value="Not available">Wind Speed : {{device.wind_speed}} m/s</div>
                  </div>
-
          </ion-slide>
       </ion-slide-box>
    </div>
             <div class="circ" ng-show="fail">
-                <div class="load">Internet Faied...</div>
+                <div class="load" ng-model="errorInfo">{{errorInfo}}</div>
                 <div class="hands"></div>
                 <div class="body"></div>
                 <div class="head">

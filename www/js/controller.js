@@ -3,11 +3,13 @@ angular.module('visuo.controllers', [])
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|chrome-extension|cdvfile|content):|data:image\//);
         })
 
-.controller("WeatherCtrl",function ($scope, $state, $http,$ionicSlideBoxDelegate, $timeout,$ionicLoading){
+.controller("WeatherCtrl",function ($scope, $state, $http, $ionicSlideBoxDelegate, $timeout,$ionicLoading){
 
      $scope.weather= {};
      $scope.weather.devices =[];
      $scope.fail = false;
+     $scope.full = true;
+
      var flag;
 
 
@@ -35,15 +37,27 @@ angular.module('visuo.controllers', [])
           method: 'GET',
           url: 'https://www.visuo.adsc.com.sg/api/app/?format=json',
          }).success(function(data) {
-             $scope.weather.devices = data.imagers;
+             $scope.weather.devices = data;
              $ionicSlideBoxDelegate.update();
-             flag = 0;
-             for ( i in $scope.weather.devices){
-                 getDeviceData(i,$scope.weather.devices.length);
+             if(data){
+                flag = 0;
+                for ( i in $scope.weather.devices){
+                   getDeviceData(i,$scope.weather.devices.length);
+                }
+                $scope.fail = false;
+                $scope.$root.full = true;
+                console.log($scope.full);
              }
-             $scope.fail = false;
+             else{
+                $scope.errorInfo = 'No Imagers Available...';
+                $scope.$root.full = false;
+                $scope.fail = true;
+             }
          }).error(function(data, status,config,headers) {
+            $scope.errorInfo = 'Internet Failed...';
+            $scope.$root.full = false;
             $scope.fail = true;
+
             $ionicSlideBoxDelegate.update();
             $scope.$broadcast('scroll.refreshComplete');
             $timeout(function(){
@@ -66,10 +80,12 @@ angular.module('visuo.controllers', [])
               $scope.weather.devices[i].humidity = data.humidity;
               flag++;
               if(flag == total){
+                  $scope.$root.full = true;
                   $scope.fail = false;
               }
           }).error(function(data) {
               flag++;
+                $scope.errorInfo = 'No Photo available...';
                 $scope.fail = true;
           }).finally(function(){
              $ionicSlideBoxDelegate.update();
@@ -89,9 +105,6 @@ angular.module('visuo.controllers', [])
        if($scope.fail == true){
          $scope.doRefresh();
        }
-   /*    $('#slider').fadeOut(20,function(){
-           $('#slider').fadeIn(200);
-       });*/
 
      }
 
