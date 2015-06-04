@@ -5,7 +5,7 @@
             <ion-refresher refreshing-text="Loading.." on-refresh="doRefresh()">
             </ion-refresher>
 
-            <div class="splash"></div>
+           <div class="splash"></div>
 
     <div id="slider" ng-hide="fail">
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="Swipe($index)">
@@ -22,9 +22,9 @@
                      <img ng-src="{{device.photo}}" />
                  </div>
                  <div id="down_container">
-                      <div class="data" value="Not available">Temperature : {{device.temperature}} &deg;C</div>
-                      <div class="data" value="Not available">Humidity : {{device.humidity}} %</div>
-                      <div class="data" value="Not available">Wind Speed : {{device.wind_speed}} m/s</div>
+                      <div ng-hide="!device.temperature" class="data" >Temperature : {{device.temperature}} &deg;C</div>
+                      <div ng-hide="!device.humidity" class="data" >Humidity : {{device.humidity}} %</div>
+                      <div ng-hide="!device.wind_speed" class="data" >Wind Speed : {{device.wind_speed}} m/s</div>
                  </div>
          </ion-slide>
       </ion-slide-box>

@@ -14,8 +14,8 @@ angular.module('Visuo', ['ionic','visuo.controllers','ngCordova'])
 
        setTimeout(function() {
             navigator.splashscreen.hide();
-            $('.splash').fadeOut(1800);
-       }, 1800);
+            $('.splash').fadeOut(2000);
+       }, 2000);
     }
              var deviceHeight = $( window ).height();
              var deviceWidth = $( window ).width();
