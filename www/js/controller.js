@@ -46,17 +46,31 @@ angular.module('visuo.controllers', [])
                 }
                 $scope.fail = false;
                 $scope.$root.full = true;
-                console.log($scope.full);
              }
              else{
                 $scope.errorInfo = 'No Imagers Available...';
                 $scope.$root.full = false;
                 $scope.fail = true;
              }
-         }).error(function(data, status,config,headers) {
+         }).error(function(data, status) {
             $scope.errorInfo = 'Internet Failed...';
             $scope.$root.full = false;
             $scope.fail = true;
+
+                if (status==0){
+                    $scope.errorInfo = 'Whoops, No Internet...';
+                }
+                else if((status >= 400) && (status < 500))
+                {
+                    $scope.errorInfo = 'Client Request Failed...';
+                }
+                else if( (status >= 500) && (status < 600) ) {
+                    $scope.errorInfo = 'Server Connection Failed...';
+                }
+                else{
+                    $scope.errorInfo = 'Something wrong :( '+status;
+            //        console.log(status);
+                }
 
             $ionicSlideBoxDelegate.update();
             $scope.$broadcast('scroll.refreshComplete');
@@ -83,10 +97,24 @@ angular.module('visuo.controllers', [])
                   $scope.$root.full = true;
                   $scope.fail = false;
               }
-          }).error(function(data) {
+
+          }).error(function(data,status) {
               flag++;
-                $scope.errorInfo = 'No Photo available...';
                 $scope.fail = true;
+                if (status==0){
+                    $scope.errorInfo = 'Whoops, No Internet...';
+                }
+                else if((status >= 400) && (status < 500))
+                {
+                    $scope.errorInfo = 'Client Request Failed...';
+                }
+                else if( (status >= 500) && (status < 600) ) {
+                    $scope.errorInfo = 'Server Connection Failed...';
+                }
+                else{
+                    $scope.errorInfo = 'Something wrong :( '+status;
+            //        console.log(status);
+                }
           }).finally(function(){
              $ionicSlideBoxDelegate.update();
              if(flag == total){
