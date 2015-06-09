@@ -44,6 +44,11 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
         templateUrl: "templates/menu.html",
       })
 
+    /*  .state('about', {
+        url: "/about",
+        templateUrl: "templates/about.html",
+      })*/
+
       .state('app.main', {
         url: "/main",
         cache:false,
@@ -53,7 +58,18 @@ $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
                cache:false,
            }
         }
-      });
+      })
+
+      .state('app.about', {
+        url: "/about",
+        cache:false,
+        views:{
+           'menuContent':{
+               templateUrl: "templates/about.html",
+               cache:false,
+           }
+        }
+      })      ;
 
     $urlRouterProvider.otherwise('/app/main');
 

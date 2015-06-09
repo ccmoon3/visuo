@@ -1,0 +1,28 @@
+<ion-modal-view>
+    <ion-pane class="background-cloud">
+       <ion-nav-bar class="trans_header">
+            <ion-nav-buttons side="right">
+                <i class="icon ion-close-circled" ng-click="closeAbout()"></i>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-content scroll="false">
+
+
+                <div id="logo_container" >
+                    <div id="icon"></div>
+                    <div class="title">Visuo</div>
+                    <div class="version">Version 0.0.1</div>
+                </div>
+              <div class="about">The Visuo app was developed by <a href="http://adsc.illinois.edu/" onClick="javascript:return openExternal(this)">ADSC</a> in collaboration with <a href="http://www.ntu.edu.sg/" onClick="javascript:return openExternal(this)">NTU</a>.
+                  <br>We have built a number of sky imagers, which are deployed at various locations on NTU campus.
+                  The latest images captured by those devices, together with information from our weather stations, can be viewed using this app.
+              </div>
+
+        </ion-content>
+        <ion-footer-bar class="trans_header">
+            <div class="about">For more information about our research, please visit <a href="http://vintage.winklerbros.net/" onClick="javascript:return openExternal(this)">our Website</a>.
+            </div>
+        </ion-footer-bar>
+    </ion-pane>
+</ion-modal-view>

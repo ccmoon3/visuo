@@ -1,9 +1,10 @@
+
 angular.module('visuo.controllers', [])
  .config(function($compileProvider) {
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|chrome-extension|cdvfile|content):|data:image\//);
         })
 
-.controller("WeatherCtrl",function ($scope, $state, $http, $ionicSlideBoxDelegate, $timeout,$ionicLoading){
+.controller("WeatherCtrl",function ($scope, $ionicModal, $state, $http, $ionicSlideBoxDelegate, $timeout,$ionicLoading){
 
      $scope.weather= {};
      $scope.weather.devices =[];
@@ -11,6 +12,23 @@ angular.module('visuo.controllers', [])
      $scope.full = true;
 
      var flag;
+
+
+  $ionicModal.fromTemplateUrl('templates/about.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+
+  $scope.closeAbout = function() {
+    $scope.modal.hide();
+  };
+
+
+  $scope.about = function() {
+    $scope.modal.show();
+  };
 
 
      $scope.doRefresh = function() {
@@ -86,12 +104,14 @@ angular.module('visuo.controllers', [])
      var getDeviceData = function (i,total){
 
           $http.get("https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/?format=json").success(function(data){
-              $scope.weather.devices[i].photo = "https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/image/";
+              $scope.weather.devices[i].photo = "https://www.visuo.adsc.com.sg/api/app/"+$scope.weather.devices[i].id+"/image/?decache="+ Math.random();
               $scope.weather.devices[i].date = data.date;
               $scope.weather.devices[i].wind_speed = data.wind_speed;
               $scope.weather.devices[i].pressure = data.pressure;
               $scope.weather.devices[i].temperature = data.temperature;
               $scope.weather.devices[i].humidity = data.humidity;
+              $scope.weather.devices[i].rainfall_rate = data.rainfall_rate;
+
               flag++;
               if(flag == total){
                   $scope.$root.full = true;

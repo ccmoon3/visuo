@@ -5,7 +5,7 @@
             <ion-refresher refreshing-text="Loading.." on-refresh="doRefresh()">
             </ion-refresher>
 
-           <div class="splash"></div>
+          <div class="splash"></div>
 
     <div id="slider" ng-hide="fail">
       <ion-slide-box active-slide="myActiveSlide" on-slide-changed="Swipe($index)">
@@ -19,24 +19,35 @@
                      </ul>
                  </div>
                  <div id="middle_container">
-                     <img ng-src="{{device.photo}}" />
+                     <img ng-src="{{device.photo|| '//:0'}}" />
                  </div>
-                 <div id="down_container">
+             <!--    <div id="down_container">
                       <div ng-hide="!device.temperature" class="data" >Temperature : {{device.temperature}} &deg;C</div>
                       <div ng-hide="!device.humidity" class="data" >Humidity : {{device.humidity}} %</div>
                       <div ng-hide="!device.wind_speed" class="data" >Wind Speed : {{device.wind_speed}} m/s</div>
+                     <div ng-hide="!device.wind_speed" class="data" >Wind Speed : {{device.wind_speed}} m/s</div>
+                  <!--    <div ng-hide="!device.rainfall_rate" class="data" >Rainfall Rate : {{device.rainfall_rate}} mm/hr</div>-->
+              <!--   </div>-->
+             <div id="container">
+                 <div class="col-data">
+                 <div ng-hide="!device.temperature" class="row-data" >Temperature : {{device.temperature}} &deg;C</div>
+                 <div ng-hide="!device.humidity" class="row-data" >Humidity : {{device.humidity}} %</div>
+                 <div ng-hide="!device.wind_speed" class="row-data" >Wind Speed : {{device.wind_speed}} m/s</div>
+         <!--        <div ng-hide="!device.wind_speed" class="row-data" >Wind Speed : {{device.wind_speed}} m/s</div>-->
+                 <div ng-hide="!device.rainfall_rate" class="data" >Rainfall Rate : {{device.rainfall_rate}} mm/hr</div>
                  </div>
-         </ion-slide>
-      </ion-slide-box>
-   </div>
-            <div class="circ" ng-show="fail">
-                <div class="load" ng-model="errorInfo">{{errorInfo}}</div>
-                <div class="hands"></div>
-                <div class="body"></div>
-                <div class="head">
-                    <div class="eye"></div>
-                </div>
-            </div>
-  </ion-content>
- </ion-pane>
-</ion-view>
+             </div>
+            </ion-slide>
+         </ion-slide-box>
+      </div>
+               <div class="circ" ng-show="fail">
+                   <div class="load" ng-model="errorInfo">{{errorInfo}}</div>
+                   <div class="hands"></div>
+                   <div class="body"></div>
+                   <div class="head">
+                       <div class="eye"></div>
+                   </div>
+               </div>
+     </ion-content>
+    </ion-pane>
+   </ion-view>
